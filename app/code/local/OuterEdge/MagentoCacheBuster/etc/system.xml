@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <outeredge translate="label">
+            <label>outer/edge</label>
+            <sort_order>210</sort_order>
+        </outeredge>
+    </tabs>
+    <sections>
+        <cachebuster translate="label">
+            <class>separator-top</class>
+            <label>CacheBuster</label>
+            <tab>outeredge</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <extensions translate="label">
+                            <label>Cache busted extensions when using getSkinUrl()</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extensions>
+                    </fields>
+                </settings>
+            </groups>
+        </cachebuster>
+    </sections>
+</config>

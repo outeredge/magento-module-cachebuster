@@ -1,0 +1,22 @@
+{
+    "name": "outeredge/magento-module-cachebuster",
+    "type": "magento-module",
+    "description": "Magento CacheBuster Module by outer/edge",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "outer/edge",
+            "email": "support@outeredgeuk.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "extra": {
+        "map": [
+            ["app/code/local/OuterEdge/MagentoCacheBuster", "app/code/local/OuterEdge/MagentoCacheBuster"],
+            ["app/etc/modules/OuterEdge_MagentoCacheBuster.xml", "app/etc/modules/OuterEdge_MagentoCacheBuster.xml"],
+            ["cachebuster.php", "cachebuster.php"]
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <OuterEdge_MagentoCacheBuster>
+            <version>1.0.0</version>
+        </OuterEdge_MagentoCacheBuster>
+    </modules>
+    <global>
+        <models>
+            <core>
+                <rewrite>
+                    <design_package>OuterEdge_MagentoCacheBuster_Model_Design_Package</design_package>
+                </rewrite>
+            </core>
+        </models>
+    </global>
+</config>
