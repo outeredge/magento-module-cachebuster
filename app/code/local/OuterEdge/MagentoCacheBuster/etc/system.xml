@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <tabs>
-        <outeredge translate="label">
+        <edge translate="label">
             <label>outer/edge</label>
-            <sort_order>210</sort_order>
-        </outeredge>
+            <sort_order>200</sort_order>
+        </edge>
     </tabs>
     <sections>
         <cachebuster translate="label">
             <class>separator-top</class>
             <label>CacheBuster</label>
-            <tab>outeredge</tab>
+            <tab>edge</tab>
             <frontend_type>text</frontend_type>
             <sort_order>1</sort_order>
             <show_in_default>1</show_in_default>
