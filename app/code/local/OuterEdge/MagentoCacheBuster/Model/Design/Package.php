@@ -7,10 +7,9 @@ if (class_exists('Fooman_SpeedsterAdvanced_Model_Core_Design_Package')) {
 }
 class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
 {
+    protected $baseUrl;
     protected $extensions = array();
-
     protected $hashes = array();
-
     protected $hashfile = 'cachebuster.php';
 
     public function getSkinUrl($file = null, array $params = array())
@@ -31,7 +30,8 @@ class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
         }
 
         if (!array_key_exists($url, $this->hashes)) {
-            if (!file_exists($url)) {
+            $path = str_replace($this->getBaseUrl(), Mage::getBaseDir(Mage_Core_Model_Store::URL_TYPE_SKIN) . DS, $url);
+            if (!file_exists($path)) {
                 $this->hashes[$url] = $url;
             } else {
                 $this->hashes[$url] = substr_replace($url, '.' . md5_file(ltrim(parse_url($url, PHP_URL_PATH), '/')), strrpos($url, '.'), 0);
@@ -50,4 +50,12 @@ class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
         }
         return $this->extensions;
     }
+
+   protected function getBaseUrl()
+   {
+       if (null === $this->baseUrl) {
+           $this->baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
+       }
+       return $this->baseUrl;
+   }
 }
