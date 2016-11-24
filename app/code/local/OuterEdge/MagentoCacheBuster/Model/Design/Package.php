@@ -34,7 +34,7 @@ class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
             if (!file_exists($path)) {
                 $this->hashes[$url] = $url;
             } else {
-                $this->hashes[$url] = substr_replace($url, '.' . md5_file(ltrim(parse_url($url, PHP_URL_PATH), '/')), strrpos($url, '.'), 0);
+                $this->hashes[$url] = substr_replace($url, '.' . md5_file($path), strrpos($url, '.'), 0);
             }
 
             file_put_contents($this->hashfile, '<?php return ' . var_export($this->hashes, true) . ';');
