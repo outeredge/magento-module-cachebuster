@@ -7,6 +7,7 @@ if (class_exists('Fooman_SpeedsterAdvanced_Model_Core_Design_Package')) {
 }
 class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
 {
+    protected $_isAdmin;
     protected $baseUrl;
     protected $extensions = array();
     protected $hashes = array();
@@ -15,11 +16,12 @@ class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
     public function getSkinUrl($file = null, array $params = array())
     {
         $url = parent::getSkinUrl($file, $params);
-
+        if ($this->isAdmin()) {
+            return $url;
+        }
         if (!in_array(pathinfo($url, PATHINFO_EXTENSION), $this->getExtensions())) {
             return $url;
         }
-
         return $this->getHash($url);
     }
 
@@ -57,5 +59,19 @@ class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
            $this->baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);
        }
        return $this->baseUrl;
+   }
+
+   protected function isAdmin()
+   {
+       if (null === $this->_isAdmin) {
+           if (Mage::app()->getStore()->isAdmin()) {
+               $this->_isAdmin = true;
+           } elseif (Mage::getDesign()->getArea() === 'adminhtml') {
+               $this->_isAdmin = true;
+           } else {
+               $this->_isAdmin = false;
+           }
+       }
+       return $this->_isAdmin;
    }
 }
