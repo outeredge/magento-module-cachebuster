@@ -45,6 +45,9 @@ class OuterEdge_MagentoCacheBuster_Model_Design_Package extends MiddleManClass
 
     protected function getExtensions()
     {
+        if (Mage::getIsDeveloperMode()) {
+            return array();
+        }
         if (empty($this->extensions)) {
             $this->extensions = explode(PHP_EOL, Mage::getStoreConfig('cachebuster/settings/extensions'));
         }
